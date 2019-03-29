@@ -18,6 +18,10 @@ class Game extends React.Component {
 
     shuffle = (shuffleArr) => {
         let i, j, temp;
+        if (shuffleArr.includes(9)){
+            const index = shuffleArr.findIndex(e => e == 9);
+            shuffleArr.splice(index, 1)
+        }
         for (i = shuffleArr.length - 1; i > 0; i--) {
             j = Math.floor(Math.random() * (i + 1));
             temp = shuffleArr[i];
