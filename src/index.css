@@ -4,6 +4,21 @@
 main{
     display: flex;flex-direction: column;
 }
+.pathButtons{
+    width: 100%;display: flex;
+}
+.pathButton{
+    width: 50%;
+    height: 30px;
+    background-color: rgba(130, 219, 122, .3);
+    border: 1px solid #878787;
+    text-align: center;
+}
+.pathButton>a{
+    text-decoration: none;
+    color: black;
+}
+
 header,
 .counterContainer{
     display: flex;
@@ -31,4 +46,5 @@ input{
     width: 33.33%;height: 33.33%;
     border: 1px solid black;
     display: flex;align-items: center;justify-content: center;
+    animation-duration: 2s;
 }

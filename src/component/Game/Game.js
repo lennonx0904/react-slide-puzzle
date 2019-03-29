@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from './Header';
-import Main from './Main';
+import Main from './Main/Main';
 
 const correctArr = [1,2,3,4,5,6,7,8,9];
 const puzzles = document.getElementsByClassName('puzzle');
 
-class Game extends Component {
+class Game extends React.Component {
     constructor(props){
         super(props);
  
@@ -18,13 +18,13 @@ class Game extends Component {
 
     shuffle = (shuffleArr) => {
         let i, j, temp;
-        // for (i = shuffleArr.length - 1; i > 0; i--) {
-        //     j = Math.floor(Math.random() * (i + 1));
-        //     temp = shuffleArr[i];
-        //     shuffleArr[i] = shuffleArr[j];
-        //     shuffleArr[j] = temp;
-        // }
-        // shuffleArr.push(9) 
+        for (i = shuffleArr.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            temp = shuffleArr[i];
+            shuffleArr[i] = shuffleArr[j];
+            shuffleArr[j] = temp;
+        }
+        shuffleArr.push(9) 
         return shuffleArr;
     } 
     
