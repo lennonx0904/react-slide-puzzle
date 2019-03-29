@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import { BrowserRouter, HashRouter,Route } from "react-router-dom";
-import Game from './component/Game/Game';
-import Ranking from './component/Ranking';
+import Header from './Header';
+import Main from './Main';
 
 const correctArr = [1,2,3,4,5,6,7,8,9];
 const puzzles = document.getElementsByClassName('puzzle');
-const puzzleContainer = document.querySelector('.puzzleContainer');
-const counter = document.querySelector('.counter');
-const start = document.querySelector('.start');
-const name = document.querySelector('.name');
 
-class App extends Component {
+class Game extends Component {
     constructor(props){
         super(props);
+ 
+        this.state = {
+            name: '',
+            shuffleArr: [1,2,3,4,5,6,7,9,8],
+            count: 0
+        }
     }
-    
-
-
 
     shuffle = (shuffleArr) => {
         let i, j, temp;
@@ -63,7 +61,6 @@ class App extends Component {
             if (indexOfTarget == indexOfBlank + 1 || indexOfTarget == indexOfBlank + 3|| indexOfTarget == indexOfBlank - 3) {
                 this.switchPuzzle();
                 this.setState({count: this.state.count += 1})
-                // counter.textContent = this.state.count;
             } else {
                 return;
             }
@@ -72,7 +69,6 @@ class App extends Component {
            if (indexOfTarget == indexOfBlank + 1 || indexOfTarget == indexOfBlank -1 || indexOfTarget == indexOfBlank + 3|| indexOfTarget == indexOfBlank - 3) {
                 this.switchPuzzle();
                 this.setState({count: this.state.count += 1})
-                //counter.textContent = this.state.count;
             } else {
                 return;
             }
@@ -81,7 +77,6 @@ class App extends Component {
             if (indexOfTarget == indexOfBlank -1 || indexOfTarget == indexOfBlank + 3|| indexOfTarget == indexOfBlank - 3) {
                 this.switchPuzzle();
                 this.setState({count: this.state.count += 1})
-                //counter.textContent = this.state.count;
             } else {
                 return;
             }
@@ -104,21 +99,21 @@ class App extends Component {
     
         render(){
             return (
-                <BrowserRouter>
-                    <div>
-                        {console.log('this.state',this.state.shuffleArr)}
-                        {console.log(this.state.shuffleArr.toString() === correctArr.toString())} 
-                        {this.state.shuffleArr.toString() === correctArr.toString() ? setTimeout(this.complete(), 5000)  : null}
-                        <Header 
-                        startGame={this.startGame.bind(this)}/>
-                        <Main
-                        count={this.state.count} 
-                        playGame={this.playGame.bind(this)}/>
-                    </div>
-                </BrowserRouter>
+                <div>
+                    {console.log('this.state',this.state.shuffleArr)}
+                    {console.log(this.state.shuffleArr.toString() === correctArr.toString())} 
+                    {this.state.shuffleArr.toString() === correctArr.toString() ? setTimeout(this.complete(), 5000)  : null}
+                    <Header 
+                    startGame={this.startGame.bind(this)}/>
+                    <Main
+                    count={this.state.count} 
+                    playGame={this.playGame.bind(this)}/>
+                </div>
             )
+     
         }
+    
   }
 
 
-export default App;
+export default Game;
