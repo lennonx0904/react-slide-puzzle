@@ -2,4 +2,4 @@
 
 DEMO
 
-https://lennonx0904.github.io/react-slide-puzzle/dist/#/
+https://lennonx0904.github.io/react-slide-puzzle/dist/
